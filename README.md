@@ -1,215 +1,130 @@
-# trigflow_policy
-one or two step trigflow for robot policy
+# TrigFlow Policy Research Core
 
-
-我来为你创建一个完整的研究论文管理模板：
-
-```markdown
-# 研究论文管理文档
-
-## 0. 论文基本信息
-### 0.1 概览
-- 论文标题：Trigflow policy: one step robot policy end to end
-
-### 0.2 摘要
-- 研究背景：
-- 研究问题：
-- 主要方法：
-- 核心结果：
-- 关键结论：
-
-### 0.3 时间规划
-- [ ] 实验完成：[日期]
-- [ ] 初稿完成：[日期]
-- [ ] 修改完成：[日期]
-- [ ] 投稿日期：[日期]
-
-## 1. 研究概述
-### 1.1 研究背景
-- 领域现状：
-- 主要挑战：
-- 研究机遇：
-- 发展趋势：
-
-### 1.2 创新点
-- 理论创新：
-- 技术创新：
-- 应用创新：
-- 优势对比：
-
-### 1.3 研究目标
-- 总体目标：
-- 具体目标：
-- 技术路线：
-- 预期成果：
-
-## 2. 相关工作
-### 2.1 文献综述
-#### 研究方向1
-- 论文1：[标题] - [核心方法] - [主要结果]
-- 论文2：[标题] - [核心方法] - [主要结果]
-
-#### 研究方向2
-- 论文1：[标题] - [核心方法] - [主要结果]
-- 论文2：[标题] - [核心方法] - [主要结果]
-
-### 2.2 理论基础
-- 基础理论1：
-- 基础理论2：
-- 关键技术：
-- 主要工具：
-
-### 2.3 研究现状
-- 研究热点：
-- 存在问题：
-- 解决思路：
-- 改进空间：
-
-## 3. 方法设计
-### 3.1 理论模型
-- 问题定义：
-- 形式化表示：
-- 模型假设：
-- 理论证明：
-
-### 3.2 核心算法
+## 1. Core Algorithm
 ```python
-# 算法伪代码
-class CoreAlgorithm:
+def TrigFlowPolicy:
+    """
+    Innovation 1: One-step end-to-end robot policy learning
+    Advantage: Eliminates multi-stage processing overhead
+    
+    Traditional: state -> feature -> action -> execution 
+    Ours: state -> direct action execution
+    """
     def __init__(self):
-        # 初始化参数说明
-        pass
+        self.encoder = build_encoder()
+        self.policy_head = build_policy()
         
-    def main_process(self):
-        # 核心流程说明
-        pass
+    def forward(self, state):
+        # Direct state to action mapping
+        features = self.encoder(state) 
+        action = self.policy_head(features)
+        return action
+
 ```
 
-### 3.3 算法分析
-- 复杂度分析：
-- 收敛性证明：
-- 正确性证明：
-- 优化策略：
-
-## 4. 实验设计
-### 4.1 实验环境
-- 硬件配置：
-- 软件环境：
-- 依赖包：
-- 数据集：
-
-### 4.2 评估指标
-- 指标1：[定义] [计算方法]
-- 指标2：[定义] [计算方法]
-- 基线方法：
-- 评估标准：
-
-### 4.3 实验记录
-| 实验ID | 日期 | 参数配置 | 结果 | 结论 | 问题 |
-|--------|------|----------|------|------|------|
-| exp_001|      |          |      |      |      |
-
-### 4.4 消融实验
-- 实验设计：
-- 变量控制：
-- 结果分析：
-- 结论总结：
-
-## 5. 项目代码
-### 5.1 代码结构
+## 2. Project Structure
 ```
-project/
-├── src/
+trigflow/
+├── core/
 │   ├── models/
-│   ├── utils/
-│   └── experiments/
-├── data/
-└── results/
+│   │   ├── encoder.py     # State encoding
+│   │   └── policy.py      # Policy network
+│   └── utils/
+│       └── losses.py      # Custom losses
+├── experiments/
+│   ├── configs/           # Training configs
+│   └── eval/              # Evaluation code
+└── data/
+    └── datasets/          # Robot task data
+
+# Get using: tree -L 2 your_project_path
 ```
 
-### 5.2 核心模块
-```python
-# 关键功能实现
-def key_function():
-    pass
+## 3. Key Experiments
+| Experiment | Innovation | Baseline | Improvement |
+|------------|------------|----------|-------------|
+| End-to-End | Direct state-action | Multi-stage | 30% faster |
+| Robustness | Trigger mechanism | Fixed policy | 25% accuracy |
+
+### Metrics
+- End-to-End Time (ms)
+- Success Rate (%)
+- Robustness (std)
+
+### Dataset
+- Size: 100K trajectories 
+- Tasks: 5 robot manipulation
+- Features: State(64d), Action(6d)
+
+### Environment
+- Hardware: V100 GPU
+- Framework: PyTorch 2.0
+- Main packages: xxx
+
+## 4. Literature Review
+| Paper | Method | Our Improvement | Advantage |
+|-------|---------|----------------|-----------|
+| [2023] Paper A | Two-stage | One-stage | Faster |
+| [2022] Paper B | Fixed policy | Adaptive | Robust |
+| [2024] Paper C | Complex arch | Simplified | Efficient |
+
+### Core Equations
+1. Policy Loss:
+   $$L = L_{task} + \alpha L_{reg}$$
+   where $L_{task}$ is task objective
+
+2. Trigger Function:
+   $$T(s) = f(encoder(s))$$
+   for state s
+
+### Timeline
+2022: Multi-stage dominates
+2023: End-to-end emerges
+2024: Our unified approach
+
+
+
+# Paper Analysis
+
+## Input
+```
+TARGET PAPER:
+[PDF content]
+
+MY METHOD:
+Algorithm:
+[Core code/pseudocode]
+
+Innovation:
+[Key points]
 ```
 
-### 5.3 运行配置
-```yaml
-# 配置文件
-model:
-  param1: value1
-  param2: value2
+## Extract & Compare
+1. Their Core Method:
+- Problem: [Abstract P1]
+- Solution: [Method]
+- Results: [Experiments]
+- Limits: [Discussion]
+
+2. Comparison Table:
+| Aspect | Their Method | Our Method | Advantage |
+|--------|--------------|------------|-----------|
+| Tech | | | |
+| Results | | | |
+
+3. Key Citations:
+- Background:
+- Technical:
+- Results:
+
+4. Writing Materials:
+- Problem framing:
+- Method description:
+- Result analysis:
 ```
 
-## 6. 论文素材
-### 6.1 图表资源
-- 框架图：[位置]
-- 流程图：[位置]
-- 结果图：[位置]
-- 对比图：[位置]
-
-### 6.2 实验结果
-- 定量结果：
-- 定性分析：
-- 案例分析：
-- 失败案例：
-
-### 6.3 写作素材
-- 常用术语：
-- 关键公式：
-- 重要引用：
-- 缩写说明：
-
-## 7. 论文进展
-### 7.1 待办事项
-- [ ] 任务1：[描述] [截止日期]
-- [ ] 任务2：[描述] [截止日期]
-
-### 7.2 问题记录
-- 问题1：[描述] [解决方案] [状态]
-- 问题2：[描述] [解决方案] [状态]
-
-### 7.3 讨论记录
-- [日期] 导师建议：
-- [日期] 组会反馈：
-- [日期] 同行意见：
-
-### 7.4 修改历史
-| 版本 | 日期 | 修改内容 | 修改人 |
-|------|------|----------|--------|
-| v0.1 |      |          |        |
-
-## 8. 投稿准备
-### 8.1 投稿材料清单
-- [ ] 论文PDF
-- [ ] 源文件
-- [ ] 补充材料
-- [ ] 回应信
-
-### 8.2 格式检查
-- [ ] 页数限制
-- [ ] 格式要求
-- [ ] 参考文献
-- [ ] 图表规范
-
-### 8.3 审稿响应
-| 审稿意见 | 修改方案 | 完成状态 |
-|----------|----------|----------|
-|          |          |          |
-```
-
-特点：
-1. 结构完整，层次清晰
-2. 包含研究全周期管理
-3. 便于Git版本控制
-4. 支持迭代更新
-5. 适合团队协作
-
-使用建议：
-1. 根据实际需求删减部分
-2. 定期更新进展
-3. 重要节点做Git标签
-4. 保持结构统一
-
-需要我详细解释某个部分吗？
+Tips:
+1. Find key info in Section_name [keyword]
+2. Compare each technical component
+3. Focus on quantitative results
+4. Extract reusable phrases
